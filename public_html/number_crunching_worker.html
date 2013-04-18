@@ -1,0 +1,22 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Worker example: One-core computation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+    <p>The highest prime number discovered so far is:
+	<output id="result"></output>
+    </p>
+<script type="text/javascript">
+    var worker = new Worker("js/number_crunching_worker.js");
+    worker.onmessage = function(event) {
+	document.getElementById('result').textContent = event.data;
+    }
+</script>
+</body>
+</html>
